@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов»
 
 * Студент: [Иван Попаль](https://up.htmlacademy.ru/react/16/user/16977).
-* Наставник: `Неизвестно`.
+* Наставник: [Yulia Volkova](https://up.htmlacademy.ru/ecmascript/23/user/423707).
 
 ---
 
