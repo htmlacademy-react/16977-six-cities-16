@@ -1,14 +1,14 @@
 import Header from '../../components/header/header.tsx';
 import CommonMap from '../../components/main/common-map/common-map.tsx';
 import Locations from '../../components/main/locations/locations.tsx';
-import PlaceCard from '../../components/main/place-card/place-card.tsx';
-import PlaceHeader from '../../components/main/place-header/place-header.tsx';
-import PlacesSorting from '../../components/main/places-sorting/places-sorting.tsx';
+import PlaceCard from '../../components/main/place/place-card/place-card.tsx';
+import PlaceHeader from '../../components/main/place/place-header/place-header.tsx';
+import PlacesSorting from '../../components/main/place/places-sorting/places-sorting.tsx';
 
 function MainPage(): JSX.Element {
   return (
     <div className="page page--gray page--main">
-      <Header />
+      <Header isVisibleNavigation={true} />
 
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>

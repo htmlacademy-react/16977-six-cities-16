@@ -1,4 +1,8 @@
-function Navigation(): JSX.Element {
+function HeaderNavigation({ isVisibleNavigation = true }: { isVisibleNavigation: boolean }): JSX.Element {
+  if (!isVisibleNavigation) {
+    return (<></>);
+  }
+
   return (
     <nav className="header__nav">
       <ul className="header__nav-list">
@@ -19,4 +23,4 @@ function Navigation(): JSX.Element {
   );
 }
 
-export default Navigation;
+export default HeaderNavigation;

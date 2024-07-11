@@ -1,5 +1,5 @@
 import { CITY_NAMES } from '../../../utils/constants/constants.ts';
-import LocationsItem from '../locations-item/locations-item.tsx';
+import LocationsItem from './locations-item/locations-item.tsx';
 
 function Locations(): JSX.Element {
   return (

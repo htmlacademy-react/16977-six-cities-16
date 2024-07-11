@@ -1,16 +1,16 @@
 import Header from "../../components/header/header";
 import CommonMap from "../../components/main/common-map/common-map";
-import PlaceCard from "../../components/main/place-card/place-card";
-import PlaceCharacteristics from "../../components/main/place-characteristics/place-characteristics";
-import PlaceGallery from "../../components/main/place-gallery/place-gallery";
-import ReviewsForm from "../../components/main/reviews-form/reviews-form";
-import ReviewsHeader from "../../components/main/reviews-header/reviews-header";
-import ReviewsList from "../../components/main/reviews-list/reviews-list";
+import PlaceCard from "../../components/main/place/place-card/place-card";
+import PlaceCharacteristics from "../../components/main/place/place-characteristics/place-characteristics";
+import PlaceGallery from "../../components/main/place/place-gallery/place-gallery";
+import ReviewsForm from "../../components/main/reviews/reviews-form/reviews-form";
+import ReviewsHeader from "../../components/main/reviews/reviews-header/reviews-header";
+import ReviewsList from "../../components/main/reviews/reviews-list/reviews-list";
 
 function OfferPage(): JSX.Element {
   return (
     <div className="page">
-      <Header />
+      <Header isVisibleNavigation={true} />
 
       <main className="page__main page__main--offer">
         <section className="offer">

@@ -1,4 +1,4 @@
-function Logo(): JSX.Element {
+function HeaderLogo(): JSX.Element {
   return (
     <div className="header__left">
       <a className="header__logo-link header__logo-link--active">
@@ -8,4 +8,4 @@ function Logo(): JSX.Element {
   );
 }
 
-export default Logo;
+export default HeaderLogo;
