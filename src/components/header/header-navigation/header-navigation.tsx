@@ -1,6 +1,6 @@
 function HeaderNavigation({ isVisibleNavigation = true }: { isVisibleNavigation: boolean }): JSX.Element {
   if (!isVisibleNavigation) {
-    return (<></>);
+    return (<div></div>);
   }
 
   return (

@@ -6,7 +6,7 @@ import FavoritesTitle from '../../components/main/favorites/favorites-title/favo
 function FavoritesPage(): JSX.Element {
   return (
     <div className="page">
-      <Header isVisibleNavigation={true} />
+      <Header isVisibleNavigation />
 
       <main className="page__main page__main--favorites">
         <div className="page__favorites-container container">

@@ -1,14 +1,16 @@
-function PlaceCard({ classNameCard = 'cities__card', classNameImageWrapper = 'cities__image-wrapper' }: { classNameCard: string, classNameImageWrapper: string }): JSX.Element {
+function PlaceCard({ classNameCard = 'cities__card', classNameImageWrapper = 'cities__image-wrapper' }: { classNameCard: string; classNameImageWrapper: string }): JSX.Element {
+  const classNamePlaceCard = `${classNameCard} place-card`;
+  const classNamePlaceImageWrapper = `${classNameImageWrapper} place-card__image-wrapper`;
+
   return (
-    <article className={classNameCard + ' place-card'}>
+    <article className={classNamePlaceCard}>
       <div className="place-card__mark">
         <span>Premium</span>
       </div>
 
-      <div className={classNameImageWrapper + ' place-card__image-wrapper'}>
+      <div className={classNamePlaceImageWrapper}>
         <a href="#">
-          <img className="place-card__image" src="img/apartment-01.jpg" width="260" height="200"
-            alt="Place image" />
+          <img className="place-card__image" src="img/apartment-01.jpg" width="260" height="200" alt="Place image" />
         </a>
       </div>
 

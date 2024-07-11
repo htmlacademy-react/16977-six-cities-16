@@ -10,7 +10,7 @@ import ReviewsList from '../../components/main/reviews/reviews-list/reviews-list
 function OfferPage(): JSX.Element {
   return (
     <div className="page">
-      <Header isVisibleNavigation={true} />
+      <Header isVisibleNavigation={false} />
 
       <main className="page__main page__main--offer">
         <section className="offer">
