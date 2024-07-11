@@ -1,5 +1,5 @@
-import FavoritesLocations from "../favorites-locations/favorites-locations";
-import FavoritesPlaces from "../favorites-places/favorites-places";
+import FavoritesLocations from '../favorites-locations/favorites-locations.tsx';
+import FavoritesPlaces from '../favorites-places/favorites-places.tsx';
 
 function FavoritesLocationsItem(): JSX.Element {
   return (

@@ -1,11 +1,11 @@
-import Header from "../../components/header/header";
-import CommonMap from "../../components/main/common-map/common-map";
-import PlaceCard from "../../components/main/place/place-card/place-card";
-import PlaceCharacteristics from "../../components/main/place/place-characteristics/place-characteristics";
-import PlaceGallery from "../../components/main/place/place-gallery/place-gallery";
-import ReviewsForm from "../../components/main/reviews/reviews-form/reviews-form";
-import ReviewsHeader from "../../components/main/reviews/reviews-header/reviews-header";
-import ReviewsList from "../../components/main/reviews/reviews-list/reviews-list";
+import Header from '../../components/header/header.tsx';
+import CommonMap from '../../components/main/common-map/common-map.tsx';
+import PlaceCard from '../../components/main/place/place-card/place-card.tsx';
+import PlaceCharacteristics from '../../components/main/place/place-characteristics/place-characteristics.tsx';
+import PlaceGallery from '../../components/main/place/place-gallery/place-gallery.tsx';
+import ReviewsForm from '../../components/main/reviews/reviews-form/reviews-form.tsx';
+import ReviewsHeader from '../../components/main/reviews/reviews-header/reviews-header.tsx';
+import ReviewsList from '../../components/main/reviews/reviews-list/reviews-list.tsx';
 
 function OfferPage(): JSX.Element {
   return (

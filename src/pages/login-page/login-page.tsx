@@ -1,5 +1,5 @@
-import Header from "../../components/header/header";
-import LoginForm from "../../components/main/login-form/login-form";
+import Header from '../../components/header/header.tsx';
+import LoginForm from '../../components/main/login-form/login-form.tsx';
 
 function LoginPage(): JSX.Element {
   return (

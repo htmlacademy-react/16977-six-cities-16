@@ -1,4 +1,4 @@
-import ReviewsItem from "../reviews-item/reviews-item";
+import ReviewsItem from '../reviews-item/reviews-item.tsx';
 
 function ReviewsList(): JSX.Element {
   return (

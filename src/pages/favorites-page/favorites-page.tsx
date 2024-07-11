@@ -1,7 +1,7 @@
-import Footer from "../../components/footer/footer";
-import Header from "../../components/header/header";
-import FavoritesList from "../../components/main/favorites/favorites-list/favorites-list";
-import FavoritesTitle from "../../components/main/favorites/favorites-title/favorites-title";
+import Footer from '../../components/footer/footer.tsx';
+import Header from '../../components/header/header.tsx';
+import FavoritesList from '../../components/main/favorites/favorites-list/favorites-list.tsx';
+import FavoritesTitle from '../../components/main/favorites/favorites-title/favorites-title.tsx';
 
 function FavoritesPage(): JSX.Element {
   return (

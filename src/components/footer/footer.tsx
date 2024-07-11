@@ -1,4 +1,4 @@
-import FooterLogo from "./footer-logo/footer-logo";
+import FooterLogo from './footer-logo/footer-logo.tsx';
 
 function Footer(): JSX.Element {
   return (
