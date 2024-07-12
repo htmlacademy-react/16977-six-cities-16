@@ -1,6 +1,6 @@
 type typePlaceCard = {
   classNameCard: string;
-  classNameImageWrapper: string
+  classNameImageWrapper: string;
 }
 
 function PlaceCard({

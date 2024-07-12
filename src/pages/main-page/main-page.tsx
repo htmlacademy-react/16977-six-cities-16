@@ -13,9 +13,7 @@ type MainPage = {
 }
 
 function MainPage({ dataListOffers, countOffersMainPage }: MainPage): JSX.Element {
-  const listOffers = [...dataListOffers].slice(0, countOffersMainPage).map(() => {
-    return <PlaceCard key={crypto.randomUUID()} classNameCard={'cities__card'} classNameImageWrapper={'cities__image-wrapper'} />
-  });
+  const listOffers = [...dataListOffers].slice(0, countOffersMainPage).map(() => <PlaceCard key={crypto.randomUUID()} classNameCard={'cities__card'} classNameImageWrapper={'cities__image-wrapper'} />);
 
   return (
     <div className="page page--gray page--main">
