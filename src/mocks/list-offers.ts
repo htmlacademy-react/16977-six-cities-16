@@ -829,6 +829,6 @@ const listOffers: ListOffers[] = [
     'isPremium': true,
     'rating': 2.9
   }
-] as const;
+];
 
 export default listOffers;

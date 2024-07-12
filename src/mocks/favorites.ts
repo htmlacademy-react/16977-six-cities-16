@@ -47,6 +47,6 @@ const favorite: ListOffers[] = [
     'rating': 3.8,
     'previewImage': 'https://16.design.htmlacademy.pro/static/hotel/19.jpg'
   }
-] as const;
+];
 
 export default favorite;
