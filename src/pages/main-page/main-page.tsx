@@ -1,3 +1,5 @@
+import { ListOffers } from '../../types/types.ts';
+
 import Header from '../../components/header/header.tsx';
 import CommonMap from '../../components/main/common-map/common-map.tsx';
 import Locations from '../../components/main/locations/locations.tsx';
@@ -5,7 +7,16 @@ import PlaceCard from '../../components/main/place/place-card/place-card.tsx';
 import PlaceHeader from '../../components/main/place/place-header/place-header.tsx';
 import PlacesSorting from '../../components/main/place/places-sorting/places-sorting.tsx';
 
-function MainPage(): JSX.Element {
+type MainPage = {
+  dataListOffers: ListOffers[];
+  countOffersMainPage: number;
+}
+
+function MainPage({ dataListOffers, countOffersMainPage }: MainPage): JSX.Element {
+  const listOffers = [...dataListOffers].slice(0, countOffersMainPage).map(() => {
+    return <PlaceCard key={crypto.randomUUID()} classNameCard={'cities__card'} classNameImageWrapper={'cities__image-wrapper'} />
+  });
+
   return (
     <div className="page page--gray page--main">
       <Header isVisibleNavigation />
@@ -19,12 +30,11 @@ function MainPage(): JSX.Element {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-
               <PlaceHeader />
               <PlacesSorting />
 
               <div className="cities__places-list places__list tabs__content">
-                <PlaceCard classNameCard={'cities__card'} classNameImageWrapper={'cities__card'} />
+                {listOffers}
               </div>
             </section>
 

@@ -1,4 +1,12 @@
-function PlaceCard({ classNameCard = 'cities__card', classNameImageWrapper = 'cities__image-wrapper' }: { classNameCard: string; classNameImageWrapper: string }): JSX.Element {
+type typePlaceCard = {
+  classNameCard: string;
+  classNameImageWrapper: string
+}
+
+function PlaceCard({
+  classNameCard = 'cities__card',
+  classNameImageWrapper = 'cities__image-wrapper'
+}: typePlaceCard): JSX.Element {
   const classNamePlaceCard = `${classNameCard} place-card`;
   const classNamePlaceImageWrapper = `${classNameImageWrapper} place-card__image-wrapper`;
 

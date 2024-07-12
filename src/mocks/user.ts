@@ -1,4 +1,4 @@
-import { AuthorizedUser } from '../utils/types/types.ts';
+import { AuthorizedUser } from '../types/types.ts';
 
 const user: AuthorizedUser = {
   'name': 'Oliver Conner',
