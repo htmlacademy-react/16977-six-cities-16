@@ -1,4 +1,4 @@
-import { ListOffers } from '../../types/types.ts';
+import { ListOffers } from '../../types/list-offer.ts';
 
 import Header from '../../components/header/header.tsx';
 import CommonMap from '../../components/main/common-map/common-map.tsx';

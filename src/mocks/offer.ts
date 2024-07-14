@@ -1,4 +1,4 @@
-import { Offer } from '../types/types.ts';
+import { Offer } from '../types/offer.ts';
 
 const offer: Offer = {
   'id': '6af6f711-c28d-4121-82cd-e0b462a27f00',

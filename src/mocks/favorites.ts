@@ -1,4 +1,4 @@
-import { ListOffers } from '../types/types.tsx';
+import { ListOffers } from '../types/list-offer.ts';
 
 const favorite: ListOffers[] = [
   {

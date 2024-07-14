@@ -1,4 +1,4 @@
-import { ListOffers } from '../types/types.ts';
+import { ListOffers } from '../types/list-offer.ts';
 
 const listOffers: ListOffers[] = [
   {

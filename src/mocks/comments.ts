@@ -1,4 +1,4 @@
-import { Comments } from '../types/types.ts';
+import { Comments } from '../types/comments.ts';
 
 const comments: Comments[] = [
   {
