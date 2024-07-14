@@ -1,3 +1,18 @@
+const placesOptions = [
+  'Popular',
+  'Price: low to high',
+  'Price: high to low',
+  'Top rated first',
+] as const;
+
+function PlaceOption({ active, name }: { active: boolean; name: string }): JSX.Element {
+  const classNamePlaceOption = active ? 'places__option  places__option--active' : 'places__option';
+
+  return (
+    <li className={classNamePlaceOption} tabIndex={0}>{name}</li>
+  );
+}
+
 function PlacesSorting(): JSX.Element {
   return (
     <form className="places__sorting" action="#" method="get">
@@ -11,13 +26,9 @@ function PlacesSorting(): JSX.Element {
       </span>
 
       <ul className="places__options places__options--custom places__options--opened">
-        <li className="places__option places__option--active" tabIndex={0}>Popular</li>
-
-        <li className="places__option" tabIndex={0}>Price: low to high</li>
-
-        <li className="places__option" tabIndex={0}>Price: high to low</li>
-
-        <li className="places__option" tabIndex={0}>Top rated first</li>
+        {placesOptions.map((option) => (
+          <PlaceOption active={false} name={option} key={option} />
+        ))}
       </ul>
     </form>
   );
