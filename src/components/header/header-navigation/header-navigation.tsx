@@ -1,4 +1,8 @@
-function HeaderNavigation({ isVisibleNavigation = true }: { isVisibleNavigation: boolean }): JSX.Element {
+type HeaderNavigation = {
+  isVisibleNavigation: boolean;
+};
+
+function HeaderNavigation({ isVisibleNavigation = true }: HeaderNavigation): JSX.Element {
   if (!isVisibleNavigation) {
     return (<div></div>);
   }

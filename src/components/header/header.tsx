@@ -1,7 +1,11 @@
 import HeaderLogo from './header-logo/header-logo.tsx';
 import HeaderNavigation from './header-navigation/header-navigation.tsx';
 
-function Header({ isVisibleNavigation = true }: { isVisibleNavigation: boolean }): JSX.Element {
+type Header = {
+  isVisibleNavigation: boolean;
+}
+
+function Header({ isVisibleNavigation = true }: Header): JSX.Element {
   return (
     <header className="header">
       <div className="container">

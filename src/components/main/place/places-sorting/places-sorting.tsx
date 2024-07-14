@@ -1,11 +1,11 @@
-const placesOptions = [
-  'Popular',
-  'Price: low to high',
-  'Price: high to low',
-  'Top rated first',
-] as const;
+import { placesOptions } from '../../../../utils/constants/constants.ts';
 
-function PlaceOption({ active, name }: { active: boolean; name: string }): JSX.Element {
+type PlaceOption = {
+  active: boolean;
+  name: string;
+};
+
+function PlaceOption({ active, name }: PlaceOption): JSX.Element {
   const classNamePlaceOption = active ? 'places__option  places__option--active' : 'places__option';
 
   return (

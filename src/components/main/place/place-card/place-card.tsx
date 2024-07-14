@@ -1,3 +1,5 @@
+import { TypePlaceCardImage, TypePlaceCard } from './place-card.type.ts';
+
 function PlaceCardMark(): JSX.Element {
   return (
     <div className="place-card__mark">
@@ -6,7 +8,7 @@ function PlaceCardMark(): JSX.Element {
   );
 }
 
-function PlaceCardImage({ classNamePlaceImageWrapper }: { classNamePlaceImageWrapper: string }): JSX.Element {
+function PlaceCardImage({ classNamePlaceImageWrapper }: TypePlaceCardImage): JSX.Element {
   return (
     <div className={classNamePlaceImageWrapper}>
       <a href="#">
@@ -49,15 +51,10 @@ function PlaceCardRating(): JSX.Element {
   );
 }
 
-type typePlaceCard = {
-  classNameCard: string;
-  classNameImageWrapper: string;
-}
-
 function PlaceCard({
   classNameCard = 'cities__card',
   classNameImageWrapper = 'cities__image-wrapper'
-}: typePlaceCard): JSX.Element {
+}: TypePlaceCard): JSX.Element {
   const classNamePlaceCard = `${classNameCard} place-card`;
   const classNamePlaceImageWrapper = `${classNameImageWrapper} place-card__image-wrapper`;
 

@@ -1,12 +1,10 @@
-const galleryImages = [
-  'img/apartment-01.jpg',
-  'img/apartment-02.jpg',
-  'img/apartment-03.jpg',
-  'img/studio-01.jpg',
-  'img/apartment-01.jpg'
-];
+import { galleryImages } from '../../../../utils/constants/constants.ts';
 
-function PlaceGalleryImage({ image }: { image: string }): JSX.Element {
+type PlaceGalleryImage = {
+  image: string;
+}
+
+function PlaceGalleryImage({ image }: PlaceGalleryImage): JSX.Element {
   return (
     <div className="offer__image-wrapper">
       <img className="offer__image" src={image} alt="Photo studio" />
