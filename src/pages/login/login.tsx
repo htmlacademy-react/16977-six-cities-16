@@ -1,7 +1,7 @@
 import Header from '../../components/header/header.tsx';
 import LoginForm from '../../components/main/login-form/login-form.tsx';
 
-function LoginPage(): JSX.Element {
+function Login(): JSX.Element {
   return (
     <div className="page page--gray page--login">
       <Header isVisibleNavigation={false} />
@@ -27,4 +27,4 @@ function LoginPage(): JSX.Element {
   );
 }
 
-export default LoginPage;
+export default Login;

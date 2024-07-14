@@ -3,7 +3,7 @@ import Header from '../../components/header/header.tsx';
 import FavoritesList from '../../components/main/favorites/favorites-list/favorites-list.tsx';
 import FavoritesTitle from '../../components/main/favorites/favorites-title/favorites-title.tsx';
 
-function FavoritesPage(): JSX.Element {
+function Favorites(): JSX.Element {
   return (
     <div className="page">
       <Header isVisibleNavigation />
@@ -23,4 +23,4 @@ function FavoritesPage(): JSX.Element {
   );
 }
 
-export default FavoritesPage;
+export default Favorites;

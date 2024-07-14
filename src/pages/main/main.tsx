@@ -7,12 +7,12 @@ import PlaceCard from '../../components/main/place/place-card/place-card.tsx';
 import PlaceHeader from '../../components/main/place/place-header/place-header.tsx';
 import PlacesSorting from '../../components/main/place/places-sorting/places-sorting.tsx';
 
-type MainPage = {
+type Main = {
   dataListOffers: ListOffers[];
   countOffersMainPage: number;
 }
 
-function MainPage({ dataListOffers, countOffersMainPage }: MainPage): JSX.Element {
+function Main({ dataListOffers, countOffersMainPage }: Main): JSX.Element {
   const listOffers = [...dataListOffers].slice(0, countOffersMainPage).map(() => <PlaceCard key={crypto.randomUUID()} classNameCard={'cities__card'} classNameImageWrapper={'cities__image-wrapper'} />);
 
   return (
@@ -46,4 +46,4 @@ function MainPage({ dataListOffers, countOffersMainPage }: MainPage): JSX.Elemen
   );
 }
 
-export default MainPage;
+export default Main;

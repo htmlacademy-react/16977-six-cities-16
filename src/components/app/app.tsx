@@ -2,11 +2,11 @@ import listOffers from '../../mocks/list-offers.ts';
 
 import { countOffersMainPage } from '../../utils/constants/constants.ts';
 
-import MainPage from '../../pages/main-page/main-page.tsx';
+import Main from '../../pages/main/main.tsx';
 
 function App(): JSX.Element {
   return (
-    <MainPage dataListOffers={listOffers} countOffersMainPage={countOffersMainPage} />
+    <Main dataListOffers={listOffers} countOffersMainPage={countOffersMainPage} />
   );
 }
 

@@ -7,7 +7,7 @@ import ReviewsForm from '../../components/main/reviews/reviews-form/reviews-form
 import ReviewsHeader from '../../components/main/reviews/reviews-header/reviews-header.tsx';
 import ReviewsList from '../../components/main/reviews/reviews-list/reviews-list.tsx';
 
-function OfferPage(): JSX.Element {
+function Offer(): JSX.Element {
   return (
     <div className="page">
       <Header isVisibleNavigation />
@@ -47,4 +47,4 @@ function OfferPage(): JSX.Element {
   );
 }
 
-export default OfferPage;
+export default Offer;
