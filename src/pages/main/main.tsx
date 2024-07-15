@@ -21,14 +21,8 @@ function Main({
   favoritesCount,
   offers,
 }: Main): JSX.Element {
-  const listOffers = [...offers].slice(0, countOffersMainPage).map((offer) => {
-    <PlaceCard
-      key={offer.id}
-      data={offer}
-      classNameCard={'cities__card'}
-      classNameImageWrapper={'cities__image-wrapper'}
-    />;
-  });
+  const listOffers = [...offers].slice(0, countOffersMainPage).map((offer) => <PlaceCard key={offer.id} data={offer} classNameCard={'cities__card'} classNameImageWrapper={'cities__image-wrapper'} />
+  );
 
   return (
     <div className="page page--gray page--main">
