@@ -1,3 +1,6 @@
+import { AuthorizedUser } from '../../types/authorized-user.ts';
+import { ListOffers } from '../../types/list-offer.ts';
+
 import Header from '../../components/header/header.tsx';
 import CommonMap from '../../components/main/common-map/common-map.tsx';
 import PlaceCard from '../../components/main/place/place-card/place-card.tsx';
@@ -7,10 +10,20 @@ import ReviewsForm from '../../components/main/reviews/reviews-form/reviews-form
 import ReviewsHeader from '../../components/main/reviews/reviews-header/reviews-header.tsx';
 import ReviewsList from '../../components/main/reviews/reviews-list/reviews-list.tsx';
 
-function Offer(): JSX.Element {
+type Offer = {
+  countOffersMainPage: number;
+  user: AuthorizedUser;
+  favoritesCount: number;
+  offers: ListOffers[];
+}
+
+function Offer({ countOffersMainPage, offers, user, favoritesCount }: Offer): JSX.Element {
+  const listOffers = [...offers].slice(0, countOffersMainPage).map((offer) => <PlaceCard key={offer.id} data={offer} classNameCard={'near-places__card'} classNameImageWrapper={'near-places__image-wrapper'} />
+  );
+
   return (
     <div className="page">
-      <Header isVisibleNavigation />
+      <Header user={user} favoritesCount={favoritesCount} isVisibleNavigation />
 
       <main className="page__main page__main--offer">
         <section className="offer">
@@ -38,7 +51,7 @@ function Offer(): JSX.Element {
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
 
             <div className="near-places__list places__list">
-              <PlaceCard classNameCard={'near-places__card'} classNameImageWrapper={'near-places__image-wrapper'} />
+              {listOffers}
             </div>
           </section>
         </div>
