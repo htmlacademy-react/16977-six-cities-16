@@ -17,4 +17,6 @@ const placesOptions = [
   'Top rated first',
 ] as const;
 
-export { CITY_NAMES, countOffersMainPage, galleryImages, placesOptions };
+const MAX_RATING = 5 as const;
+
+export { CITY_NAMES, countOffersMainPage, galleryImages, placesOptions, MAX_RATING };

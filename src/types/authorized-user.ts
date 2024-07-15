@@ -5,6 +5,6 @@ type Authorization = {
   'token': string;
 };
 
-type AuthorizedUser = Authorization | User;
+type AuthorizedUser = Authorization & User;
 
 export type { AuthorizedUser };

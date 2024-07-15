@@ -1,3 +1,4 @@
+import { AuthorizedUser } from '../../types/authorized-user.ts';
 import { ListOffers } from '../../types/list-offer.ts';
 
 import Header from '../../components/header/header.tsx';
@@ -8,16 +9,30 @@ import PlaceHeader from '../../components/main/place/place-header/place-header.t
 import PlacesSorting from '../../components/main/place/places-sorting/places-sorting.tsx';
 
 type Main = {
-  dataListOffers: ListOffers[];
   countOffersMainPage: number;
+  user: AuthorizedUser;
+  favoritesCount: number;
+  offers: ListOffers[];
 }
 
-function Main({ dataListOffers, countOffersMainPage }: Main): JSX.Element {
-  const listOffers = [...dataListOffers].slice(0, countOffersMainPage).map(() => <PlaceCard key={crypto.randomUUID()} classNameCard={'cities__card'} classNameImageWrapper={'cities__image-wrapper'} />);
+function Main({
+  countOffersMainPage,
+  user,
+  favoritesCount,
+  offers,
+}: Main): JSX.Element {
+  const listOffers = [...offers].slice(0, countOffersMainPage).map((offer) => {
+    <PlaceCard
+      key={offer.id}
+      data={offer}
+      classNameCard={'cities__card'}
+      classNameImageWrapper={'cities__image-wrapper'}
+    />;
+  });
 
   return (
     <div className="page page--gray page--main">
-      <Header isVisibleNavigation />
+      <Header user={user} favoritesCount={favoritesCount} isVisibleNavigation />
 
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
