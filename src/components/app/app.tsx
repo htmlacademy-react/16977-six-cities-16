@@ -19,7 +19,7 @@ import PrivateRoute from '../private-route/private-route.tsx';
 
 function App(): JSX.Element {
   const favoriteCount = favorites.length;
-  const auth = AuthorizationStatus.Auth;
+  const auth = AuthorizationStatus.NoAuth;
 
   return (
     <HelmetProvider>
