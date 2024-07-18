@@ -1,3 +1,7 @@
+import { Helmet } from 'react-helmet-async';
+
+import { AuthorizationStatus } from '../../utils/constants/constants.ts';
+
 import { AuthorizedUser } from '../../types/authorized-user.ts';
 
 import Footer from '../../components/footer/footer.tsx';
@@ -7,13 +11,18 @@ import FavoritesTitle from '../../components/main/favorites/favorites-title/favo
 
 type Favorites = {
   user: AuthorizedUser;
+  authorizationStatus: AuthorizationStatus;
   favoritesCount: number;
 }
 
-function Favorites({ user, favoritesCount }: Favorites): JSX.Element {
+function Favorites({ user, authorizationStatus, favoritesCount }: Favorites): JSX.Element {
   return (
     <div className="page">
-      <Header user={user} favoritesCount={favoritesCount} isVisibleNavigation />
+      <Helmet>
+        <title>6 cities | Избранное</title>
+      </Helmet>
+
+      <Header authorizationStatus={authorizationStatus} user={user} favoritesCount={favoritesCount} isVisibleNavigation isActive={false} />
 
       <main className="page__main page__main--favorites">
         <div className="page__favorites-container container">

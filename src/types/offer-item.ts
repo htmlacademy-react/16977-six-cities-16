@@ -19,6 +19,6 @@ type OfferCharacteristics = {
   'maxAdults': number;
 }
 
-type Offer = ListOffers | OfferCharacteristics;
+type OfferItem = ListOffers & OfferCharacteristics;
 
-export type { Offer };
+export type { OfferItem };

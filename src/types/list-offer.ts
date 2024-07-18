@@ -14,7 +14,7 @@ type ListOffers = {
   'title': string;
   'type': string;
   'price': number;
-  'previewImage': string;
+  'previewImage'?: string;
   'city': OfferCity;
   'location': OfferLocation;
   'isFavorite': boolean;

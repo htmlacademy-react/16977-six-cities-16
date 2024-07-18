@@ -3,7 +3,8 @@ import { ListOffers } from '../../../../types/list-offer.ts';
 type TypePlaceCardImage = {
   classNamePlaceImageWrapper: string;
   title: string;
-  previewImage: string;
+  previewImage?: string;
+  id: string;
 }
 
 type TypePlaceCard = {
