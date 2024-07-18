@@ -4,6 +4,8 @@ import { Helmet } from 'react-helmet-async';
 import './not-found.css';
 
 function NotFound(): JSX.Element {
+  const path = window.location.pathname;
+
   return (
     <div className="page-not-found">
       <Helmet>
@@ -59,7 +61,7 @@ function NotFound(): JSX.Element {
       </svg>
       <div className="message-box">
         <h1>404</h1>
-        <p>Page not found</p>
+        <p>Page "{path}" not found</p>
         <div className="buttons-con">
           <div className="action-link-wrap">
             <Link to="/" className="link-button">
