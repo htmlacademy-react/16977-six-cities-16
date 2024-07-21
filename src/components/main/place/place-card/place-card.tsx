@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import {
   TypePlaceCardImage,
   TypePlaceCard,
@@ -6,7 +8,8 @@ import {
   TypePlaceCardRating
 } from './place-card.type.ts';
 
-import { MAX_RATING } from '../../../../utils/constants/constants.ts';
+import getPercentRating from '../../../../utils/helpers/get-percent-rating.ts';
+
 
 function PlaceCardMark({ isPremium }: TypePlaceCardMark) {
   return isPremium && (
@@ -19,13 +22,14 @@ function PlaceCardMark({ isPremium }: TypePlaceCardMark) {
 function PlaceCardImage({
   classNamePlaceImageWrapper,
   title,
-  previewImage
+  previewImage,
+  id
 }: TypePlaceCardImage): JSX.Element {
   return (
     <div className={classNamePlaceImageWrapper}>
-      <a href="#">
+      <Link to={`/offer/${id}`}>
         <img className="place-card__image" src={previewImage} width="260" height="200" alt={title} />
-      </a>
+      </Link>
     </div>
   );
 }
@@ -53,12 +57,12 @@ function PlaceCardMarkPrice({ price, isFavorite }: TypePlaceCardMarkPrice): JSX.
 }
 
 function PlaceCardRating({ rating }: TypePlaceCardRating): JSX.Element {
-  const precentRating = Math.round((rating * 100) / MAX_RATING);
+  const percentRating = getPercentRating(rating);
 
   return (
     <div className="place-card__rating rating">
       <div className="place-card__stars rating__stars">
-        <span style={{ width: `${precentRating}% ` }}></span>
+        <span style={{ width: `${percentRating}% ` }}></span>
 
         <span className="visually-hidden">Rating</span>
       </div>
@@ -74,19 +78,19 @@ function PlaceCard({
   const classNamePlaceCard = `${classNameCard} place-card`;
   const classNamePlaceImageWrapper = `${classNameImageWrapper} place-card__image-wrapper`;
 
-  const { isPremium, title, previewImage, price, rating, type, isFavorite } = data;
+  const { isPremium, title, previewImage, price, rating, type, isFavorite, id } = data;
 
   return (
     <article className={classNamePlaceCard}>
       <PlaceCardMark isPremium={isPremium} />
-      <PlaceCardImage title={title} previewImage={previewImage} classNamePlaceImageWrapper={classNamePlaceImageWrapper} />
+      <PlaceCardImage id={id} title={title} previewImage={previewImage} classNamePlaceImageWrapper={classNamePlaceImageWrapper} />
 
       <div className="place-card__info">
         <PlaceCardMarkPrice price={price} isFavorite={isFavorite} />
         <PlaceCardRating rating={rating} />
 
         <h2 className="place-card__name">
-          <a href="#">{title}</a>
+          <Link to={`/offer/${id}`}>{title}</Link>
         </h2>
 
         <p className="place-card__type">{type}</p>

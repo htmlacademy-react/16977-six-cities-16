@@ -1,4 +1,4 @@
-import { placesOptions } from '../../../../utils/constants/constants.ts';
+import { PLACES_OPTIONS } from '../../../../utils/constants/constants.ts';
 
 type PlaceOption = {
   active: boolean;
@@ -26,7 +26,7 @@ function PlacesSorting(): JSX.Element {
       </span>
 
       <ul className="places__options places__options--custom places__options--opened">
-        {placesOptions.map((option) => (
+        {PLACES_OPTIONS.map((option) => (
           <PlaceOption active={false} name={option} key={option} />
         ))}
       </ul>

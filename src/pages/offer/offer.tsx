@@ -1,5 +1,10 @@
+import { Helmet } from 'react-helmet-async';
+import { AuthorizationStatus } from '../../utils/constants/constants.ts';
+
 import { AuthorizedUser } from '../../types/authorized-user.ts';
+import { OfferItem } from '../../types/offer-item.ts';
 import { ListOffers } from '../../types/list-offer.ts';
+import { Comments } from '../../types/comments.ts';
 
 import Header from '../../components/header/header.tsx';
 import CommonMap from '../../components/main/common-map/common-map.tsx';
@@ -11,19 +16,36 @@ import ReviewsHeader from '../../components/main/reviews/reviews-header/reviews-
 import ReviewsList from '../../components/main/reviews/reviews-list/reviews-list.tsx';
 
 type Offer = {
-  countOffersMainPage: number;
   user: AuthorizedUser;
+  authorizationStatus: AuthorizationStatus;
   favoritesCount: number;
+  offer: OfferItem;
+  comments: Comments[];
   offers: ListOffers[];
+  countOffersOfferPage: number;
 }
 
-function Offer({ countOffersMainPage, offers, user, favoritesCount }: Offer): JSX.Element {
-  const listOffers = [...offers].slice(0, countOffersMainPage).map((offer) => <PlaceCard key={offer.id} data={offer} classNameCard={'near-places__card'} classNameImageWrapper={'near-places__image-wrapper'} />
+function Offer({
+  countOffersOfferPage,
+  authorizationStatus,
+  offers,
+  offer,
+  user,
+  favoritesCount,
+  comments
+}: Offer): JSX.Element {
+  const listOffers = [...offers].slice(0, countOffersOfferPage).map((offersItem) => <PlaceCard key={offersItem.id} data={offersItem} classNameCard={'near-places__card'} classNameImageWrapper={'near-places__image-wrapper'} />
   );
+
+  const commentsLength = comments.length;
 
   return (
     <div className="page">
-      <Header user={user} favoritesCount={favoritesCount} isVisibleNavigation />
+      <Helmet>
+        <title>6 cities | {offer.title}</title>
+      </Helmet>
+
+      <Header authorizationStatus={authorizationStatus} user={user} favoritesCount={favoritesCount} isVisibleNavigation isActive={false} />
 
       <main className="page__main page__main--offer">
         <section className="offer">
@@ -31,12 +53,12 @@ function Offer({ countOffersMainPage, offers, user, favoritesCount }: Offer): JS
 
           <div className="offer__container container">
             <div className="offer__wrapper">
-              <PlaceCharacteristics />
+              <PlaceCharacteristics offer={offer} />
 
               <section className="offer__reviews reviews">
-                <ReviewsHeader />
+                <ReviewsHeader commentsLength={commentsLength} />
 
-                <ReviewsList />
+                <ReviewsList comments={comments} />
 
                 <ReviewsForm />
               </section>

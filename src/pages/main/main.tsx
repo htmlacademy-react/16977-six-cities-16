@@ -1,3 +1,7 @@
+import { Helmet } from 'react-helmet-async';
+
+import { AuthorizationStatus } from '../../utils/constants/constants.ts';
+
 import { AuthorizedUser } from '../../types/authorized-user.ts';
 import { ListOffers } from '../../types/list-offer.ts';
 
@@ -10,6 +14,7 @@ import PlacesSorting from '../../components/main/place/places-sorting/places-sor
 
 type Main = {
   countOffersMainPage: number;
+  authorizationStatus: AuthorizationStatus;
   user: AuthorizedUser;
   favoritesCount: number;
   offers: ListOffers[];
@@ -17,6 +22,7 @@ type Main = {
 
 function Main({
   countOffersMainPage,
+  authorizationStatus,
   user,
   favoritesCount,
   offers,
@@ -26,7 +32,11 @@ function Main({
 
   return (
     <div className="page page--gray page--main">
-      <Header user={user} favoritesCount={favoritesCount} isVisibleNavigation />
+      <Helmet>
+        <title>6 cities</title>
+      </Helmet>
+
+      <Header authorizationStatus={authorizationStatus} user={user} favoritesCount={favoritesCount} isVisibleNavigation isActive />
 
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
