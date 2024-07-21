@@ -1,13 +1,13 @@
 
 import { OfferItem } from '../../../../types/offer-item.ts';
-import GetPrecentRating from '../../../../utils/helpers/get-precent-rating.ts';
+import getPercentRating from '../../../../utils/helpers/get-percent-rating.ts';
 
 type PlaceCharacteristicHost = {
-  'description': string;
-  'host': {
-    'name': string;
-    'avatarUrl': string;
-    'isPro': boolean;
+  description: string;
+  host: {
+    name: string;
+    avatarUrl: string;
+    isPro: boolean;
   };
 }
 
@@ -36,12 +36,12 @@ function PlaceCharacteristicName({ title }: { title: string }) {
 }
 
 function PlaceCharacteristicRating({ rating }: { rating: number }): JSX.Element {
-  const precentRating = GetPrecentRating(rating);
+  const percentRating = getPercentRating(rating);
 
   return (
     <div className="offer__rating rating">
       <div className="offer__stars rating__stars">
-        <span style={{ width: `${precentRating}% ` }}></span>
+        <span style={{ width: `${percentRating}% ` }}></span>
         <span className="visually-hidden">Rating</span>
       </div>
 

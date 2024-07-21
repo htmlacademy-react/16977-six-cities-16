@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
-
-import { AuthorizationStatus } from '../../../utils/constants/constants.ts';
-
+import { AppRoute, AuthorizationStatus } from '../../../utils/constants/constants.ts';
 import { AuthorizedUser } from '../../../types/authorized-user.ts';
 
 type HeaderNavigation = {
@@ -24,19 +22,19 @@ function HeaderNavigation({
       <ul className="header__nav-list">
         {isUser && (
           <li className="header__nav-item user">
-            <a className="header__nav-link header__nav-link--profile" href="#">
+            <Link className="header__nav-link header__nav-link--profile" to={AppRoute.Profile}>
               <div className="header__avatar-wrapper user__avatar-wrapper"></div>
               <span className="header__user-name user__name">{email}</span>
-            </a>
+            </Link>
 
-            <Link to="/favorites">
+            <Link to={AppRoute.Favorites}>
               <span className="header__favorite-count">{favoritesCount}</span>
             </Link>
           </li>
         )}
 
         <li className="header__nav-item">
-          <Link className="header__nav-link" to={isUser ? '#' : '/login'}>
+          <Link className="header__nav-link" to={isUser ? AppRoute.Main : AppRoute.Login}>
             <span className="header__signout">{isUser ? 'Sign out' : 'Sign in'}</span>
           </Link>
         </li>

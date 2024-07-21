@@ -8,7 +8,8 @@ import {
   TypePlaceCardRating
 } from './place-card.type.ts';
 
-import GetPrecentRating from '../../../../utils/helpers/get-precent-rating.ts';
+import getPercentRating from '../../../../utils/helpers/get-percent-rating.ts';
+
 
 function PlaceCardMark({ isPremium }: TypePlaceCardMark) {
   return isPremium && (
@@ -56,12 +57,12 @@ function PlaceCardMarkPrice({ price, isFavorite }: TypePlaceCardMarkPrice): JSX.
 }
 
 function PlaceCardRating({ rating }: TypePlaceCardRating): JSX.Element {
-  const precentRating = GetPrecentRating(rating);
+  const percentRating = getPercentRating(rating);
 
   return (
     <div className="place-card__rating rating">
       <div className="place-card__stars rating__stars">
-        <span style={{ width: `${precentRating}% ` }}></span>
+        <span style={{ width: `${percentRating}% ` }}></span>
 
         <span className="visually-hidden">Rating</span>
       </div>

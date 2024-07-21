@@ -1,8 +1,8 @@
 import { User } from './user.ts';
 
 type Authorization = {
-  'email': string;
-  'token': string;
+  email: string;
+  token: string;
 };
 
 type AuthorizedUser = Authorization & User;

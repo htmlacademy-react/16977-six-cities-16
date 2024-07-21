@@ -30,9 +30,7 @@ function App(): JSX.Element {
           <Route path={AppRoute.Main} element={
             <Main
               countOffersMainPage={COUNT_OFFERS_MAIN_PAGE}
-
               authorizationStatus={auth}
-
               user={user}
               favoritesCount={favoriteCount}
               offers={listOffers}

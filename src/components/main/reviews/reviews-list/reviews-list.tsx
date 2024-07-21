@@ -1,10 +1,10 @@
 import { Comments } from '../../../../types/comments.ts';
-import GetPrecentRating from '../../../../utils/helpers/get-precent-rating.ts';
+import getPercentRating from '../../../../utils/helpers/get-percent-rating.ts';
 
 function ReviewsItem({ commentsItem }: { commentsItem: Comments }): JSX.Element {
   const { user, comment, rating } = commentsItem;
 
-  const precentRating = GetPrecentRating(rating);
+  const percentRating = getPercentRating(rating);
 
   return (
     <li className="reviews__item">
@@ -19,7 +19,7 @@ function ReviewsItem({ commentsItem }: { commentsItem: Comments }): JSX.Element 
       <div className="reviews__info">
         <div className="reviews__rating rating">
           <div className="reviews__stars rating__stars">
-            <span style={{ width: `${precentRating}%` }}></span>
+            <span style={{ width: `${percentRating}%` }}></span>
 
             <span className="visually-hidden">Rating</span>
           </div>

@@ -27,7 +27,8 @@ enum AppRoute {
   Login = '/login',
   Favorites = '/favorites',
   Offer = '/offer/:id',
-  NotFound = '*'
+  NotFound = '*',
+  Profile = '/profile'
 }
 
 enum AuthorizationStatus {
