@@ -11,6 +11,8 @@ function PrivateRoute({ authorizationStatus, children, page }: PrivateRouteProps
   switch (page) {
     case AppRoute.Favorites:
       return authorizationStatus === AuthorizationStatus.Auth ? children : <Navigate to={AppRoute.Login} />;
+    case AppRoute.Profile:
+      return authorizationStatus === AuthorizationStatus.Auth ? children : <Navigate to={AppRoute.Login} />;
     case AppRoute.Login:
       return authorizationStatus === AuthorizationStatus.Auth ? <Navigate to={AppRoute.Main} /> : children;
     default:

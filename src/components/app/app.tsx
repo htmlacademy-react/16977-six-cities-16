@@ -14,12 +14,13 @@ import Login from '../../pages/login/login.tsx';
 import Favorites from '../../pages/favorites/favorites.tsx';
 import Offer from '../../pages/offer/offer.tsx';
 import NotFound from '../../pages/not-found/not-found.tsx';
+import Profile from '../../pages/profile/profile.tsx';
 import ScrollToTop from '../../utils/helpers/scroll-to-top.ts';
 import PrivateRoute from '../private-route/private-route.tsx';
 
 function App(): JSX.Element {
   const favoriteCount = favorites.length;
-  const auth = AuthorizationStatus.NoAuth;
+  const auth = AuthorizationStatus.Auth;
 
   return (
     <HelmetProvider>
@@ -70,6 +71,17 @@ function App(): JSX.Element {
               offers={listOffers}
               comments={comments}
             />
+          }
+          />
+
+          <Route path={AppRoute.Profile} element={
+            <PrivateRoute authorizationStatus={auth} page={AppRoute.Profile}>
+              <Profile
+                authorizationStatus={auth}
+                favoritesCount={favoriteCount}
+                user={user}
+              />
+            </PrivateRoute>
           }
           />
 
