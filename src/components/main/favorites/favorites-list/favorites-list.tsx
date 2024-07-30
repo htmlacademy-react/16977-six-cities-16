@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
-
 import { FavoritesListType, FavoritesLocationsItemType, FavoritesPlacesType } from './favorites-list.types.ts';
 import { ListOffers } from '../../../../types/list-offers.ts';
-
+import { cityNameToLowerCase } from '../../../../utils/helpers/common.ts';
 import PlaceCard from '../../place/place-card/place-card.tsx';
 
 function FavoritesLocations({ cityName }: { cityName: string }): JSX.Element {
-  const cityLink = `/${cityName.toLowerCase()}`;
+  const cityLink = `/${cityNameToLowerCase(cityName)}`;
 
   return (
     <div className="favorites__locations locations locations--current">
