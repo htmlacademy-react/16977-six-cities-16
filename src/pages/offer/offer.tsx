@@ -3,7 +3,7 @@ import { AuthorizationStatus } from '../../utils/constants/constants.ts';
 
 import { AuthorizedUser } from '../../types/authorized-user.ts';
 import { OfferItem } from '../../types/offer-item.ts';
-import { ListOffers } from '../../types/list-offer.ts';
+import { ListOffers } from '../../types/list-offers.ts';
 import { Comments } from '../../types/comments.ts';
 
 import Header from '../../components/header/header.tsx';

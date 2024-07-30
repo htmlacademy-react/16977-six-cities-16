@@ -1,11 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 
-import user from '../../mocks/user.ts';
-import favorites from '../../mocks/favorites.ts';
-import listOffers from '../../mocks/list-offers.ts';
-import offer from '../../mocks/offer.ts';
-import comments from '../../mocks/comments.ts';
+import { AuthorizedUser } from '../../types/authorized-user.ts';
+import { ListOffers } from '../../types/list-offers.ts';
+import { OfferItem } from '../../types/offer-item.ts';
+import { Comments } from '../../types/comments.ts';
 
 import { COUNT_OFFERS_MAIN_PAGE, COUNT_OFFERS_OFFER_PAGE, AppRoute, AuthorizationStatus } from '../../utils/constants/constants.ts';
 
@@ -18,7 +17,16 @@ import Profile from '../../pages/profile/profile.tsx';
 import ScrollToTop from '../../utils/helpers/scroll-to-top.ts';
 import PrivateRoute from '../private-route/private-route.tsx';
 
-function App(): JSX.Element {
+type App = {
+  user: AuthorizedUser;
+  favorites: ListOffers[];
+  listOffers: ListOffers[];
+  offer: OfferItem;
+  comments: Comments[];
+};
+
+function App(props: App): JSX.Element {
+  const { user, favorites, listOffers, offer, comments } = props;
   const favoriteCount = favorites.length;
   const auth = AuthorizationStatus.Auth;
 
@@ -56,6 +64,7 @@ function App(): JSX.Element {
                 authorizationStatus={auth}
                 user={user}
                 favoritesCount={favoriteCount}
+                favorites={favorites}
               />
             </PrivateRoute>
           }

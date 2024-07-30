@@ -1,4 +1,4 @@
-import { ListOffers } from './list-offer.ts';
+import { ListOffers } from './list-offers.ts';
 
 type OfferCharacteristicGoods = string[];
 

@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { AuthorizationStatus } from '../../utils/constants/constants.ts';
 
 import { AuthorizedUser } from '../../types/authorized-user.ts';
-import { ListOffers } from '../../types/list-offer.ts';
+import { ListOffers } from '../../types/list-offers.ts';
 
 import Header from '../../components/header/header.tsx';
 import CommonMap from '../../components/main/common-map/common-map.tsx';

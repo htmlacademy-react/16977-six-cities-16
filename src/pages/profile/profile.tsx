@@ -18,7 +18,7 @@ function Profile({ user, authorizationStatus, favoritesCount }: Profile): JSX.El
   return (
     <div className="page page--gray page--profile">
       <Helmet>
-        <title>6 cities | Профиль - {name}</title>
+        <title>6 cities | {name}</title>
       </Helmet>
 
       <Header authorizationStatus={authorizationStatus} user={user} favoritesCount={favoritesCount} isVisibleNavigation isActive />

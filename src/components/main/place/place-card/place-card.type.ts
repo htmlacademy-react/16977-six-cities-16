@@ -1,4 +1,4 @@
-import { ListOffers } from '../../../../types/list-offer.ts';
+import { ListOffers } from '../../../../types/list-offers.ts';
 
 type TypePlaceCardImage = {
   classNamePlaceImageWrapper: string;
