@@ -24,7 +24,7 @@ function Favorites({ user, authorizationStatus, favoritesCount, favorites }: Fav
         <title>6 cities | Избранное</title>
       </Helmet>
 
-      <Header authorizationStatus={authorizationStatus} user={user} favoritesCount={favoritesCount} isVisibleNavigation isActive={false} />
+      <Header authorizationStatus={authorizationStatus} user={user} favoritesCount={favoritesCount} isVisibleNavigation />
 
       <main className="page__main page__main--favorites">
         <div className="page__favorites-container container">

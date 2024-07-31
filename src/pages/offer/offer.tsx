@@ -1,9 +1,10 @@
+import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { AuthorizationStatus } from '../../utils/constants/constants.ts';
 
 import { AuthorizedUser } from '../../types/authorized-user.ts';
-import { OfferExtended } from '../../types/offer-extended.ts';
 import { OfferDefault } from '../../types/offer-default.ts';
+import { OfferExtended } from '../../types/offer-extended.ts';
 import { Comments } from '../../types/comments.ts';
 
 import { PlaceCardImageOptions } from '../../utils/constants/constants.ts';
@@ -16,14 +17,15 @@ import PlaceGallery from '../../components/main/place/place-gallery/place-galler
 import ReviewsForm from '../../components/main/reviews/reviews-form/reviews-form.tsx';
 import ReviewsHeader from '../../components/main/reviews/reviews-header/reviews-header.tsx';
 import ReviewsList from '../../components/main/reviews/reviews-list/reviews-list.tsx';
+import NotFound from '../not-found/not-found.tsx';
 
 type Offer = {
   user: AuthorizedUser;
   authorizationStatus: AuthorizationStatus;
   favoritesCount: number;
-  offer: OfferExtended;
   comments: Comments[];
   offers: OfferDefault[];
+  offer: OfferExtended;
   countOffersOfferPage: number;
 }
 
@@ -36,7 +38,16 @@ function Offer({
   favoritesCount,
   comments
 }: Offer): JSX.Element {
-  const listOffers = [...offers].slice(0, countOffersOfferPage).map((offersItem) => <PlaceCard key={offersItem.id} typeCard={PlaceCardImageOptions.Default.name} data={offersItem} classNameCard={'near-places__card'} classNameImageWrapper={'near-places__image-wrapper'} />);
+  const { id } = useParams<{ id: string }>();
+  const currentOfferData = offers.find((currentOffer) => currentOffer.id === id);
+
+  if (!currentOfferData) {
+    return <NotFound />;
+  }
+
+  const listOffers = [...offers]
+    .slice(0, countOffersOfferPage)
+    .map((offersItem) => <PlaceCard key={offersItem.id} typeCard={PlaceCardImageOptions.DEFAULT.name} offer={offersItem} classNameCard={'near-places__card'} classNameImageWrapper={'near-places__image-wrapper'} />);
 
   const commentsLength = comments.length;
 
@@ -46,7 +57,7 @@ function Offer({
         <title>6 cities | {offer.title}</title>
       </Helmet>
 
-      <Header authorizationStatus={authorizationStatus} user={user} favoritesCount={favoritesCount} isVisibleNavigation isActive={false} />
+      <Header authorizationStatus={authorizationStatus} user={user} favoritesCount={favoritesCount} isVisibleNavigation />
 
       <main className="page__main page__main--offer">
         <section className="offer">

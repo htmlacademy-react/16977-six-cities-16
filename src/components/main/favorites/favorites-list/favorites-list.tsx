@@ -22,7 +22,7 @@ function FavoritesLocations({ cityName }: { cityName: string }): JSX.Element {
 function FavoritesPlaces({ currentFavoriteCity }: FavoritesPlacesType): JSX.Element {
   return (
     <div className="favorites__places">
-      {currentFavoriteCity && currentFavoriteCity.map((favoriteCityPlace) => <PlaceCard key={favoriteCityPlace.id} typeCard={PlaceCardImageOptions.Favorite.name} data={favoriteCityPlace} classNameCard={'favorites__card'} classNameImageWrapper={'favorites__image-wrapper'} />)}
+      {currentFavoriteCity && currentFavoriteCity.map((favoriteCityPlace) => <PlaceCard key={favoriteCityPlace.id} typeCard={PlaceCardImageOptions.FAVORITE.name} offer={favoriteCityPlace} classNameCard={'favorites__card'} classNameImageWrapper={'favorites__image-wrapper'} />)}
     </div>
   );
 }
@@ -40,12 +40,12 @@ function FavoritesLocationsItem({ favoritesCities, cityName }: FavoritesLocation
 }
 
 function FavoritesList({ favorites }: FavoritesListType): JSX.Element {
-  const favoritesCities = [...favorites].reduce((acc, currentFavorite) => {
+  const favoritesCities = [...favorites].reduce((collectionCitiesItems, currentFavorite) => {
     const currentFavoriteCityName = currentFavorite.city.name;
 
-    acc[currentFavoriteCityName] = [...favorites].filter((favorite) => favorite.city.name === currentFavoriteCityName);
+    collectionCitiesItems[currentFavoriteCityName] = [...favorites].filter((favorite) => favorite.city.name === currentFavoriteCityName);
 
-    return acc;
+    return collectionCitiesItems;
   }, {} as Record<string, OfferDefault[]>);
 
   const citiesNames = Object.keys(favoritesCities);

@@ -51,9 +51,13 @@ function PlaceCharacteristicRating({ rating }: { rating: number }): JSX.Element 
 }
 
 function PlaceCharacteristicFeatures({ type, bedrooms, maxAdults }: { type: string; bedrooms: number; maxAdults: number }): JSX.Element {
+  const firstCharType = type.charAt(0).toLocaleUpperCase();
+  const restOfType = type.slice(1);
+  const entireType = firstCharType + restOfType;
+
   return (
     <ul className="offer__features">
-      <li className="offer__feature offer__feature--entire">{type}</li>
+      <li className="offer__feature offer__feature--entire">{entireType}</li>
 
       <li className="offer__feature offer__feature--bedrooms">{bedrooms} Bedrooms</li>
 
