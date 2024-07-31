@@ -1,5 +1,5 @@
 
-import { OfferItem } from '../../../../types/offer-item.ts';
+import { OfferExtended } from '../../../../types/offer-extended.ts';
 import getPercentRating from '../../../../utils/helpers/get-percent-rating.ts';
 
 type PlaceCharacteristicHost = {
@@ -116,7 +116,7 @@ function PlaceCharacteristicHost({ description, host }: PlaceCharacteristicHost)
   );
 }
 
-function PlaceCharacteristics({ offer }: { offer: OfferItem }): JSX.Element {
+function PlaceCharacteristics({ offer }: { offer: OfferExtended }): JSX.Element {
   const { isPremium, title, rating, type, bedrooms, maxAdults, price, goods, description, host } = offer;
   return (
     <>

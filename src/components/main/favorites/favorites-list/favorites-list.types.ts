@@ -1,16 +1,16 @@
-import { ListOffers } from '../../../../types/list-offers.ts';
+import { OfferDefault } from '../../../../types/offer-default.ts';
 
 type FavoritesListType = {
-  favorites: ListOffers[];
+  favorites: OfferDefault[];
 };
 
 type FavoritesLocationsItemType = {
-  favoritesCities: Record<string, ListOffers[]>;
+  favoritesCities: Record<string, OfferDefault[]>;
   cityName: string;
 };
 
 type FavoritesPlacesType = {
-  currentFavoriteCity: ListOffers[];
+  currentFavoriteCity: OfferDefault[];
 }
 
 export type { FavoritesListType, FavoritesLocationsItemType, FavoritesPlacesType };

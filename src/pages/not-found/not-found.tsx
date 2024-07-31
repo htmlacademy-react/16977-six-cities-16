@@ -61,7 +61,7 @@ function NotFound(): JSX.Element {
       </svg>
       <div className="message-box">
         <h1>404</h1>
-        <p>Page &ldquo;{path}&ldquo; not found</p>
+        <p>Page <strong className="f-w-700">&ldquo;{path}&ldquo;</strong> not found</p>
         <div className="buttons-con">
           <div className="action-link-wrap">
             <Link to="/" className="link-button">

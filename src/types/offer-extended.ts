@@ -1,4 +1,4 @@
-import { ListOffers } from './list-offers.ts';
+import { OfferDefault } from './offer-default.ts';
 
 type OfferCharacteristicGoods = string[];
 
@@ -19,6 +19,6 @@ type OfferCharacteristics = {
   maxAdults: number;
 }
 
-type OfferItem = ListOffers & OfferCharacteristics;
+type OfferExtended = OfferDefault & OfferCharacteristics;
 
-export type { OfferItem };
+export type { OfferExtended };

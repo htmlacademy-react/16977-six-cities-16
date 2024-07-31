@@ -1,4 +1,4 @@
-import { ListOffers } from '../../../../types/list-offers.ts';
+import { OfferDefault } from '../../../../types/offer-default.ts';
 
 type TypePlaceCardImage = {
   classNamePlaceImageWrapper: string;
@@ -10,7 +10,7 @@ type TypePlaceCardImage = {
 type TypePlaceCard = {
   classNameCard: string;
   classNameImageWrapper: string;
-  data: ListOffers;
+  data: OfferDefault;
 }
 
 type TypePlaceCardMark = {

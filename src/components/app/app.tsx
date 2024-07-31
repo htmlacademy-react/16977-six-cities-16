@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 
 import { AuthorizedUser } from '../../types/authorized-user.ts';
-import { ListOffers } from '../../types/list-offers.ts';
-import { OfferItem } from '../../types/offer-item.ts';
+import { OfferDefault } from '../../types/offer-default.ts';
+import { OfferExtended } from '../../types/offer-extended.ts';
 import { Comments } from '../../types/comments.ts';
 
 import { COUNT_OFFERS_MAIN_PAGE, COUNT_OFFERS_OFFER_PAGE, AppRoute, AuthorizationStatus } from '../../utils/constants/constants.ts';
@@ -19,14 +19,14 @@ import PrivateRoute from '../private-route/private-route.tsx';
 
 type App = {
   user: AuthorizedUser;
-  favorites: ListOffers[];
-  listOffers: ListOffers[];
-  offer: OfferItem;
+  favorites: OfferDefault[];
+  offers: OfferDefault[];
+  offer: OfferExtended;
   comments: Comments[];
 };
 
 function App(props: App): JSX.Element {
-  const { user, favorites, listOffers, offer, comments } = props;
+  const { user, favorites, offers, offer, comments } = props;
   const favoriteCount = favorites.length;
   const auth = AuthorizationStatus.Auth;
 
@@ -42,7 +42,7 @@ function App(props: App): JSX.Element {
               authorizationStatus={auth}
               user={user}
               favoritesCount={favoriteCount}
-              offers={listOffers}
+              offers={offers}
             />
           }
           />
@@ -77,7 +77,7 @@ function App(props: App): JSX.Element {
               user={user}
               favoritesCount={favoriteCount}
               offer={offer}
-              offers={listOffers}
+              offers={offers}
               comments={comments}
             />
           }

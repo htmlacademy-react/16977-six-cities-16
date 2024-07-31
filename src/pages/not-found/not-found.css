@@ -72,6 +72,10 @@
   animation-delay: .8s;
 }
 
+.f-w-700 {
+  font-weight: 700;
+}
+
 @keyframes float {
   100% {
     transform: translateY(20px);

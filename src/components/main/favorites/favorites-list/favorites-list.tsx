@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FavoritesListType, FavoritesLocationsItemType, FavoritesPlacesType } from './favorites-list.types.ts';
-import { ListOffers } from '../../../../types/list-offers.ts';
+import { OfferDefault } from '../../../../types/offer-default.ts';
 import { cityNameToLowerCase } from '../../../../utils/helpers/common.ts';
 import PlaceCard from '../../place/place-card/place-card.tsx';
 
@@ -45,7 +45,7 @@ function FavoritesList({ favorites }: FavoritesListType): JSX.Element {
     acc[currentFavoriteCityName] = [...favorites].filter((favorite) => favorite.city.name === currentFavoriteCityName);
 
     return acc;
-  }, {} as Record<string, ListOffers[]>);
+  }, {} as Record<string, OfferDefault[]>);
 
   const citiesNames = Object.keys(favoritesCities);
 

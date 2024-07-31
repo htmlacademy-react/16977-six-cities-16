@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { AuthorizationStatus } from '../../utils/constants/constants.ts';
 
 import { AuthorizedUser } from '../../types/authorized-user.ts';
-import { ListOffers } from '../../types/list-offers.ts';
+import { OfferDefault } from '../../types/offer-default.ts';
 
 import Header from '../../components/header/header.tsx';
 import CommonMap from '../../components/main/common-map/common-map.tsx';
@@ -17,7 +17,7 @@ type Main = {
   authorizationStatus: AuthorizationStatus;
   user: AuthorizedUser;
   favoritesCount: number;
-  offers: ListOffers[];
+  offers: OfferDefault[];
 }
 
 function Main({
@@ -27,7 +27,7 @@ function Main({
   favoritesCount,
   offers,
 }: Main): JSX.Element {
-  const listOffers = [...offers].slice(0, countOffersMainPage).map((offer) => <PlaceCard key={offer.id} data={offer} classNameCard={'cities__card'} classNameImageWrapper={'cities__image-wrapper'} />
+  const offersCollection = [...offers].slice(0, countOffersMainPage).map((offer) => <PlaceCard key={offer.id} data={offer} classNameCard={'cities__card'} classNameImageWrapper={'cities__image-wrapper'} />
   );
 
   return (
@@ -51,7 +51,7 @@ function Main({
               <PlacesSorting />
 
               <div className="cities__places-list places__list tabs__content">
-                {listOffers}
+                {offersCollection}
               </div>
             </section>
 
