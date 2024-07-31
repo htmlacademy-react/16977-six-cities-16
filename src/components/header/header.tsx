@@ -7,10 +7,10 @@ import HeaderNavigation from './header-navigation/header-navigation.tsx';
 
 type Header = {
   authorizationStatus: AuthorizationStatus;
-  isVisibleNavigation: boolean;
+  isVisibleNavigation?: boolean;
   user: AuthorizedUser;
   favoritesCount: number;
-  isActive: boolean;
+  isActive?: boolean;
 }
 
 function Header({
@@ -18,7 +18,7 @@ function Header({
   isVisibleNavigation = true,
   user,
   favoritesCount,
-  isActive
+  isActive = false
 }: Header): JSX.Element {
   return (
     <header className="header">

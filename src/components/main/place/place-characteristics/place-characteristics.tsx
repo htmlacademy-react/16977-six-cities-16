@@ -1,5 +1,5 @@
 
-import { OfferItem } from '../../../../types/offer-item.ts';
+import { OfferExtended } from '../../../../types/offer-extended.ts';
 import getPercentRating from '../../../../utils/helpers/get-percent-rating.ts';
 
 type PlaceCharacteristicHost = {
@@ -51,9 +51,13 @@ function PlaceCharacteristicRating({ rating }: { rating: number }): JSX.Element 
 }
 
 function PlaceCharacteristicFeatures({ type, bedrooms, maxAdults }: { type: string; bedrooms: number; maxAdults: number }): JSX.Element {
+  const firstCharType = type.charAt(0).toLocaleUpperCase();
+  const restOfType = type.slice(1);
+  const entireType = firstCharType + restOfType;
+
   return (
     <ul className="offer__features">
-      <li className="offer__feature offer__feature--entire">{type}</li>
+      <li className="offer__feature offer__feature--entire">{entireType}</li>
 
       <li className="offer__feature offer__feature--bedrooms">{bedrooms} Bedrooms</li>
 
@@ -116,7 +120,7 @@ function PlaceCharacteristicHost({ description, host }: PlaceCharacteristicHost)
   );
 }
 
-function PlaceCharacteristics({ offer }: { offer: OfferItem }): JSX.Element {
+function PlaceCharacteristics({ offer }: { offer: OfferExtended }): JSX.Element {
   const { isPremium, title, rating, type, bedrooms, maxAdults, price, goods, description, host } = offer;
   return (
     <>

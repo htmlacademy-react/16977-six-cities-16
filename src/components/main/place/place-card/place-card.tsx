@@ -1,17 +1,17 @@
 import { Link } from 'react-router-dom';
 
 import {
-  TypePlaceCardImage,
-  TypePlaceCard,
-  TypePlaceCardMark,
-  TypePlaceCardMarkPrice,
-  TypePlaceCardRating
+  PlaceCardImageType,
+  PlaceCardType,
+  PlaceCardMarkType,
+  PlaceCardMarkPriceType,
+  PlaceCardRatingType
 } from './place-card.type.ts';
 
+import { PlaceCardImageOptions } from '../../../../utils/constants/constants.ts';
 import getPercentRating from '../../../../utils/helpers/get-percent-rating.ts';
 
-
-function PlaceCardMark({ isPremium }: TypePlaceCardMark) {
+function PlaceCardMark({ isPremium }: PlaceCardMarkType) {
   return isPremium && (
     <div className="place-card__mark">
       <span>Premium</span>
@@ -23,18 +23,25 @@ function PlaceCardImage({
   classNamePlaceImageWrapper,
   title,
   previewImage,
-  id
-}: TypePlaceCardImage): JSX.Element {
+  id,
+  typeCard
+}: PlaceCardImageType): JSX.Element {
   return (
     <div className={classNamePlaceImageWrapper}>
       <Link to={`/offer/${id}`}>
-        <img className="place-card__image" src={previewImage} width="260" height="200" alt={title} />
+        <img
+          className="place-card__image"
+          src={previewImage}
+          width={typeCard === PlaceCardImageOptions.DEFAULT.name ? PlaceCardImageOptions.DEFAULT.width : PlaceCardImageOptions.FAVORITE.width}
+          height={typeCard === PlaceCardImageOptions.DEFAULT.name ? PlaceCardImageOptions.DEFAULT.height : PlaceCardImageOptions.FAVORITE.height}
+          alt={title}
+        />
       </Link>
     </div>
   );
 }
 
-function PlaceCardMarkPrice({ price, isFavorite }: TypePlaceCardMarkPrice): JSX.Element {
+function PlaceCardMarkPrice({ price, isFavorite }: PlaceCardMarkPriceType): JSX.Element {
   const classNameBookmarkButton = `${isFavorite ? 'place-card__bookmark-button button  place-card__bookmark-button--active' : 'place-card__bookmark-button button'}`;
 
   return (
@@ -56,7 +63,7 @@ function PlaceCardMarkPrice({ price, isFavorite }: TypePlaceCardMarkPrice): JSX.
   );
 }
 
-function PlaceCardRating({ rating }: TypePlaceCardRating): JSX.Element {
+function PlaceCardRating({ rating }: PlaceCardRatingType): JSX.Element {
   const percentRating = getPercentRating(rating);
 
   return (
@@ -71,19 +78,22 @@ function PlaceCardRating({ rating }: TypePlaceCardRating): JSX.Element {
 }
 
 function PlaceCard({
-  data,
+  offer,
   classNameCard = 'cities__card',
-  classNameImageWrapper = 'cities__image-wrapper'
-}: TypePlaceCard): JSX.Element {
+  classNameImageWrapper = 'cities__image-wrapper',
+  typeCard,
+  onPlaceCardMouseEnterHandler,
+  onPlaceCardMouseLeaveHandler
+}: PlaceCardType): JSX.Element {
   const classNamePlaceCard = `${classNameCard} place-card`;
   const classNamePlaceImageWrapper = `${classNameImageWrapper} place-card__image-wrapper`;
 
-  const { isPremium, title, previewImage, price, rating, type, isFavorite, id } = data;
+  const { isPremium, title, previewImage, price, rating, type, isFavorite, id } = offer;
 
   return (
-    <article className={classNamePlaceCard}>
+    <article className={classNamePlaceCard} onMouseEnter={() => onPlaceCardMouseEnterHandler?.(offer)} onMouseLeave={onPlaceCardMouseLeaveHandler}>
       <PlaceCardMark isPremium={isPremium} />
-      <PlaceCardImage id={id} title={title} previewImage={previewImage} classNamePlaceImageWrapper={classNamePlaceImageWrapper} />
+      <PlaceCardImage id={id} title={title} previewImage={previewImage} classNamePlaceImageWrapper={classNamePlaceImageWrapper} typeCard={typeCard} />
 
       <div className="place-card__info">
         <PlaceCardMarkPrice price={price} isFavorite={isFavorite} />

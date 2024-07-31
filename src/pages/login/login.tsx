@@ -20,7 +20,7 @@ function Login({ user, authorizationStatus, favoritesCount }: Login): JSX.Elemen
         <title>6 cities | Авторизация</title>
       </Helmet>
 
-      <Header authorizationStatus={authorizationStatus} user={user} favoritesCount={favoritesCount} isVisibleNavigation={false} isActive={false} />
+      <Header authorizationStatus={authorizationStatus} user={user} favoritesCount={favoritesCount} />
 
       <main className="page__main page__main--login">
         <div className="page__login-container container">

@@ -1,6 +1,6 @@
-import { OfferItem } from '../types/offer-item.ts';
+import { OfferExtended } from '../types/offer-extended.ts';
 
-const offerItem: OfferItem = {
+const offer: OfferExtended = {
   'id': '6af6f711-c28d-4121-82cd-e0b462a27f00',
   'title': 'Beautiful & luxurious studio at great location',
   'type': 'apartment',
@@ -37,4 +37,4 @@ const offerItem: OfferItem = {
   'maxAdults': 4
 };
 
-export default offerItem;
+export default offer;

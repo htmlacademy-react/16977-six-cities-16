@@ -1,23 +1,24 @@
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 import { AuthorizationStatus } from '../../utils/constants/constants.ts';
 
 import { AuthorizedUser } from '../../types/authorized-user.ts';
-import { ListOffers } from '../../types/list-offer.ts';
+import { OfferDefault } from '../../types/offer-default.ts';
 
 import Header from '../../components/header/header.tsx';
 import CommonMap from '../../components/main/common-map/common-map.tsx';
 import Locations from '../../components/main/locations/locations.tsx';
-import PlaceCard from '../../components/main/place/place-card/place-card.tsx';
 import PlaceHeader from '../../components/main/place/place-header/place-header.tsx';
 import PlacesSorting from '../../components/main/place/places-sorting/places-sorting.tsx';
+import PlacesCardList from '../../components/main/place/places-card-list/places-card-list.tsx';
 
 type Main = {
   countOffersMainPage: number;
   authorizationStatus: AuthorizationStatus;
   user: AuthorizedUser;
   favoritesCount: number;
-  offers: ListOffers[];
+  offers: OfferDefault[];
 }
 
 function Main({
@@ -27,8 +28,19 @@ function Main({
   favoritesCount,
   offers,
 }: Main): JSX.Element {
-  const listOffers = [...offers].slice(0, countOffersMainPage).map((offer) => <PlaceCard key={offer.id} data={offer} classNameCard={'cities__card'} classNameImageWrapper={'cities__image-wrapper'} />
-  );
+  const [activeCard, setActiveCard] = useState<OfferDefault | null | undefined>(null);
+
+  const handlePlaceCardMouseEnter = (offer: OfferDefault) => {
+    if (offer) {
+      setActiveCard(offer);
+    }
+  };
+
+  const handlePlaceCardMouseLeave = () => {
+    if (activeCard) {
+      setActiveCard(null);
+    }
+  };
 
   return (
     <div className="page page--gray page--main">
@@ -50,9 +62,12 @@ function Main({
               <PlaceHeader />
               <PlacesSorting />
 
-              <div className="cities__places-list places__list tabs__content">
-                {listOffers}
-              </div>
+              <PlacesCardList
+                offers={offers}
+                countOffersMainPage={countOffersMainPage}
+                handlePlaceCardMouseEnter={handlePlaceCardMouseEnter}
+                handlePlaceCardMouseLeave={handlePlaceCardMouseLeave}
+              />
             </section>
 
             <div className="cities__right-section">

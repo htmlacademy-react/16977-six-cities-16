@@ -1,29 +1,33 @@
-import { ListOffers } from '../../../../types/list-offer.ts';
+import { OfferDefault } from '../../../../types/offer-default.ts';
 
-type TypePlaceCardImage = {
+type PlaceCardImageType = {
   classNamePlaceImageWrapper: string;
   title: string;
   previewImage?: string;
   id: string;
+  typeCard: 'default' | 'favorite';
 }
 
-type TypePlaceCard = {
+type PlaceCardType = {
   classNameCard: string;
   classNameImageWrapper: string;
-  data: ListOffers;
+  offer: OfferDefault;
+  typeCard: 'default' | 'favorite';
+  onPlaceCardMouseEnterHandler?: (offer: OfferDefault) => void;
+  onPlaceCardMouseLeaveHandler?: () => void;
 }
 
-type TypePlaceCardMark = {
+type PlaceCardMarkType = {
   isPremium: boolean;
 }
 
-type TypePlaceCardMarkPrice = {
+type PlaceCardMarkPriceType = {
   price: number;
   isFavorite: boolean;
 }
 
-type TypePlaceCardRating = {
+type PlaceCardRatingType = {
   rating: number;
 }
 
-export type { TypePlaceCardImage, TypePlaceCard, TypePlaceCardMark, TypePlaceCardMarkPrice, TypePlaceCardRating };
+export type { PlaceCardImageType, PlaceCardType, PlaceCardMarkType, PlaceCardMarkPriceType, PlaceCardRatingType };
