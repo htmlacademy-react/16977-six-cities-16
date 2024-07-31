@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-import { AuthorizationStatus } from '../../utils/constants/constants.ts';
+import { AuthorizationStatus, PlaceCardImageOptions } from '../../utils/constants/constants.ts';
 
 import { AuthorizedUser } from '../../types/authorized-user.ts';
 import { OfferDefault } from '../../types/offer-default.ts';
@@ -27,8 +27,7 @@ function Main({
   favoritesCount,
   offers,
 }: Main): JSX.Element {
-  const offersCollection = [...offers].slice(0, countOffersMainPage).map((offer) => <PlaceCard key={offer.id} data={offer} classNameCard={'cities__card'} classNameImageWrapper={'cities__image-wrapper'} />
-  );
+  const offersCollection = [...offers].slice(0, countOffersMainPage).map((offer) => <PlaceCard key={offer.id} typeCard={PlaceCardImageOptions.Default.name} data={offer} classNameCard={'cities__card'} classNameImageWrapper={'cities__image-wrapper'} />);
 
   return (
     <div className="page page--gray page--main">

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FavoritesListType, FavoritesLocationsItemType, FavoritesPlacesType } from './favorites-list.types.ts';
+import { PlaceCardImageOptions } from '../../../../utils/constants/constants.ts';
 import { OfferDefault } from '../../../../types/offer-default.ts';
 import { cityNameToLowerCase } from '../../../../utils/helpers/common.ts';
 import PlaceCard from '../../place/place-card/place-card.tsx';
@@ -21,7 +22,7 @@ function FavoritesLocations({ cityName }: { cityName: string }): JSX.Element {
 function FavoritesPlaces({ currentFavoriteCity }: FavoritesPlacesType): JSX.Element {
   return (
     <div className="favorites__places">
-      {currentFavoriteCity && currentFavoriteCity.map((favoriteCityPlace) => <PlaceCard key={favoriteCityPlace.id} data={favoriteCityPlace} classNameCard={'favorites__card'} classNameImageWrapper={'favorites__image-wrapper'} />)}
+      {currentFavoriteCity && currentFavoriteCity.map((favoriteCityPlace) => <PlaceCard key={favoriteCityPlace.id} typeCard={PlaceCardImageOptions.Favorite.name} data={favoriteCityPlace} classNameCard={'favorites__card'} classNameImageWrapper={'favorites__image-wrapper'} />)}
     </div>
   );
 }

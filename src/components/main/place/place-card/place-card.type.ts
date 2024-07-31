@@ -5,12 +5,14 @@ type TypePlaceCardImage = {
   title: string;
   previewImage?: string;
   id: string;
+  typeCard: 'default' | 'favorite';
 }
 
 type TypePlaceCard = {
   classNameCard: string;
   classNameImageWrapper: string;
   data: OfferDefault;
+  typeCard: 'default' | 'favorite';
 }
 
 type TypePlaceCardMark = {

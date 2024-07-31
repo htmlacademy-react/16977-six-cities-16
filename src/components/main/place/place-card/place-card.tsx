@@ -8,6 +8,7 @@ import {
   TypePlaceCardRating
 } from './place-card.type.ts';
 
+import { PlaceCardImageOptions } from '../../../../utils/constants/constants.ts';
 import getPercentRating from '../../../../utils/helpers/get-percent-rating.ts';
 
 
@@ -23,12 +24,21 @@ function PlaceCardImage({
   classNamePlaceImageWrapper,
   title,
   previewImage,
-  id
+  id,
+  typeCard
 }: TypePlaceCardImage): JSX.Element {
+  console.log(typeCard);
+
   return (
     <div className={classNamePlaceImageWrapper}>
       <Link to={`/offer/${id}`}>
-        <img className="place-card__image" src={previewImage} width="260" height="200" alt={title} />
+        <img
+          className="place-card__image"
+          src={previewImage}
+          width={typeCard === PlaceCardImageOptions.Default.name ? PlaceCardImageOptions.Default.width : PlaceCardImageOptions.Favorite.width}
+          height={typeCard === PlaceCardImageOptions.Default.name ? PlaceCardImageOptions.Default.height : PlaceCardImageOptions.Favorite.height}
+          alt={title}
+        />
       </Link>
     </div>
   );
@@ -73,7 +83,8 @@ function PlaceCardRating({ rating }: TypePlaceCardRating): JSX.Element {
 function PlaceCard({
   data,
   classNameCard = 'cities__card',
-  classNameImageWrapper = 'cities__image-wrapper'
+  classNameImageWrapper = 'cities__image-wrapper',
+  typeCard
 }: TypePlaceCard): JSX.Element {
   const classNamePlaceCard = `${classNameCard} place-card`;
   const classNamePlaceImageWrapper = `${classNameImageWrapper} place-card__image-wrapper`;
@@ -83,7 +94,7 @@ function PlaceCard({
   return (
     <article className={classNamePlaceCard}>
       <PlaceCardMark isPremium={isPremium} />
-      <PlaceCardImage id={id} title={title} previewImage={previewImage} classNamePlaceImageWrapper={classNamePlaceImageWrapper} />
+      <PlaceCardImage id={id} title={title} previewImage={previewImage} classNamePlaceImageWrapper={classNamePlaceImageWrapper} typeCard={typeCard} />
 
       <div className="place-card__info">
         <PlaceCardMarkPrice price={price} isFavorite={isFavorite} />

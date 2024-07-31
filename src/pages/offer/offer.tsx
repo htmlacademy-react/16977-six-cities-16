@@ -6,6 +6,8 @@ import { OfferExtended } from '../../types/offer-extended.ts';
 import { OfferDefault } from '../../types/offer-default.ts';
 import { Comments } from '../../types/comments.ts';
 
+import { PlaceCardImageOptions } from '../../utils/constants/constants.ts';
+
 import Header from '../../components/header/header.tsx';
 import CommonMap from '../../components/main/common-map/common-map.tsx';
 import PlaceCard from '../../components/main/place/place-card/place-card.tsx';
@@ -34,8 +36,7 @@ function Offer({
   favoritesCount,
   comments
 }: Offer): JSX.Element {
-  const listOffers = [...offers].slice(0, countOffersOfferPage).map((offersItem) => <PlaceCard key={offersItem.id} data={offersItem} classNameCard={'near-places__card'} classNameImageWrapper={'near-places__image-wrapper'} />
-  );
+  const listOffers = [...offers].slice(0, countOffersOfferPage).map((offersItem) => <PlaceCard key={offersItem.id} typeCard={PlaceCardImageOptions.Default.name} data={offersItem} classNameCard={'near-places__card'} classNameImageWrapper={'near-places__image-wrapper'} />);
 
   const commentsLength = comments.length;
 

@@ -37,6 +37,19 @@ enum AuthorizationStatus {
   Unknown = 'UNKNOWN'
 }
 
+const PlaceCardImageOptions = {
+  Default: {
+    name: 'default',
+    width: 260,
+    height: 200
+  },
+  Favorite: {
+    name: 'favorite',
+    width: 150,
+    height: 110
+  }
+} as const;
+
 export {
   CITY_NAMES,
   COUNT_OFFERS_MAIN_PAGE,
@@ -46,5 +59,6 @@ export {
   COUNT_OFFERS_OFFER_PAGE,
   MAX_REVIEW_CHARACTERS,
   AppRoute,
-  AuthorizationStatus
+  AuthorizationStatus,
+  PlaceCardImageOptions
 };
