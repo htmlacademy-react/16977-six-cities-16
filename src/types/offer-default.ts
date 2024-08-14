@@ -9,7 +9,7 @@ type OfferCity = {
   location: OfferLocation;
 };
 
-type ListOffers = {
+type OfferDefault = {
   id: string;
   title: string;
   type: string;
@@ -22,4 +22,4 @@ type ListOffers = {
   rating: number;
 };
 
-export type { ListOffers };
+export type { OfferDefault };

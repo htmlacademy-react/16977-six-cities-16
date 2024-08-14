@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import { CITY_NAMES } from '../../../utils/constants/constants.ts';
+import { cityNameToLowerCase } from '../../../utils/helpers/common.ts';
 
 type LocationsItem = {
   city: string;
@@ -10,9 +12,9 @@ function LocationsItem({ city }: LocationsItem): JSX.Element {
 
   return (
     <li className="locations__item">
-      <a className={classNameLocationsItemLink} href="#">
+      <Link className={classNameLocationsItemLink} to={cityNameToLowerCase(city)}>
         <span>{city}</span>
-      </a>
+      </Link>
     </li>
   );
 }

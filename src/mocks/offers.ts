@@ -1,6 +1,6 @@
-import { ListOffers } from '../types/list-offer.ts';
+import { OfferDefault } from '../types/offer-default.ts';
 
-const listOffers: ListOffers[] = [
+const offers: OfferDefault[] = [
   {
     'id': '6779022c-ac26-4554-ac2e-227dd6349161',
     'title': 'House in countryside',
@@ -831,4 +831,4 @@ const listOffers: ListOffers[] = [
   }
 ];
 
-export default listOffers;
+export default offers;

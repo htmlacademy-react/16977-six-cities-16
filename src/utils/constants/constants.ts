@@ -20,7 +20,7 @@ const PLACES_OPTIONS = [
 
 const MAX_RATING = 5 as const;
 
-const MAX_REVIEW_CHARACTERS = 50 as const;
+const MIN_REVIEW_CHARACTERS = 50 as const;
 
 enum AppRoute {
   Main = '/',
@@ -37,6 +37,42 @@ enum AuthorizationStatus {
   Unknown = 'UNKNOWN'
 }
 
+const PlaceCardImageOptions = {
+  DEFAULT: {
+    name: 'default',
+    width: 260,
+    height: 200
+  },
+  FAVORITE: {
+    name: 'favorite',
+    width: 150,
+    height: 110
+  }
+} as const;
+
+const reviewsFormRatingStars = [
+  {
+    value: '5',
+    title: 'perfect'
+  },
+  {
+    value: '4',
+    title: 'good'
+  },
+  {
+    value: '3',
+    title: 'not bad'
+  },
+  {
+    value: '2',
+    title: 'badly'
+  },
+  {
+    value: '1',
+    title: 'terribly'
+  }
+] as const;
+
 export {
   CITY_NAMES,
   COUNT_OFFERS_MAIN_PAGE,
@@ -44,7 +80,9 @@ export {
   PLACES_OPTIONS,
   MAX_RATING,
   COUNT_OFFERS_OFFER_PAGE,
-  MAX_REVIEW_CHARACTERS,
+  MIN_REVIEW_CHARACTERS,
   AppRoute,
-  AuthorizationStatus
+  AuthorizationStatus,
+  PlaceCardImageOptions,
+  reviewsFormRatingStars
 };
